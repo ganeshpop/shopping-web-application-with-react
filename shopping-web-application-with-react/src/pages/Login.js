@@ -8,9 +8,10 @@ function Login() {
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const history = useHistory();
-    fetch("http://localhost:9090/users/name/ravi", {mode:"no-cors"})
-        .then((response) => response.json())
-        .then((data) => console.log('This is your data', data));
+    const {data, loading, error} = useFetch("http://localhost:9090/users/name/ravi");
+    console.log(data);
+    console.log(loading);
+    console.log(error);
 
     const login = () => {
         if (userName === "ravi" && password === "password") {
